@@ -1,6 +1,7 @@
 #!/usr/local/env python3
 import subprocess
 import matplotlib.pyplot as plt
+import time
 
 class pyPinger:
     def __init__(self, domain, times):
@@ -8,7 +9,9 @@ class pyPinger:
         self.times = int(times)
 
     def process(self):
+
         print("[Message] Pinging %s ..." % self.domain)
+        date = str(time.strftime("%Y-%m-%d_%H.%M.%S"))
         theCommand = "ping %s -c%d" % (self.domain, self.times)
         proc = subprocess.Popen(theCommand, shell=True, stdout=subprocess.PIPE)
         output = proc.stdout.read()
@@ -25,10 +28,11 @@ class pyPinger:
 
         print(theArray)
         plt.plot(theArray)
-        plt.savefig("%s.png" % self.domain ,dpi=72,format="png")
+
+        plt.savefig("%s_%s.png" % (self.domain, date), dpi=72, format="png")
 
 
 if __name__ == '__main__':
 
-    domain = pyPinger("www.google.com.tw",100)
+    domain = pyPinger("www.google.com.tw", 10)
     domain.process()
