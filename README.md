@@ -22,4 +22,4 @@ myHost.process()
 [Message] Pinging www.google.com.tw ...
 [12.1, 12.0, 12.0, 12.0, 12.0, 12.0, 12.1, 12.0, 11.9, 12.0]
 ```
-![](../www.google.com.tw.png)
+![](http://i.imgur.com/PKurqeT.png)
